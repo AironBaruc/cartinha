@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uma cartinha pra você 💌</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffeef8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background-color: #f8b4d6;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f9d0e6;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      transition: 0.5s ease;
+      z-index: 2;
+    }
+
+    .envelope.opened::before {
+      clip-path: polygon(0 0, 100% 0, 100% 0);
+    }
+
+    .letter {
+      opacity: 0;
+      position: absolute;
+      background-color: #fff;
+      width: 260px;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1;
+      text-align: center;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: opacity 0.5s ease;
+    }
+
+    .envelope.opened .letter {
+      opacity: 1;
+    }
+
+    .letter h2 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
+    .letter p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .signature {
+      margin-top: 15px;
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" onclick="openEnvelope()">
+    <div class="letter">
+      <h2>Oi você 💖</h2>
+      <p>
+        Faz só um mês que a gente se conheceu, mas parece que já tem história.<br>
+        Esse cartão é só um jeito fofo de dizer que adorei te conhecer —<br>
+        e que espero que a gente continue se descobrindo, com leveza e risadas. 😊
+      </p>
+      <div class="signature">— Airon Baruc</div>
+    </div>
+  </div>
+
+  <script>
+    function openEnvelope() {
+      document.querySelector('.envelope').classList.add('opened');
+    }
+  </script>
+</body>
+</html>
